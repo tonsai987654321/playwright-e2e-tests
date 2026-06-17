@@ -1,10 +1,18 @@
+import os
 import pytest
 from playwright.sync_api import sync_playwright
 
+# Load .env if present (local dev); in CI these come from repository secrets
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 TEST_USER = {
-    "email": "your_test_email@example.com",  # pre-register this account at automationexercise.com
-    "password": "YourPassword123!",
-    "name": "Test User",
+    "email": os.environ["TEST_EMAIL"],
+    "password": os.environ["TEST_PASSWORD"],
+    "name": os.environ.get("TEST_NAME", "Test User"),
 }
 
 @pytest.fixture(scope="session")

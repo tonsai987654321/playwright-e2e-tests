@@ -27,6 +27,10 @@ jobs:
       - name: Run tests
         run: pytest tests/ --alluredir=allure-results
         continue-on-error: true
+        env:
+          TEST_EMAIL: ${{ secrets.TEST_EMAIL }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
+          TEST_NAME: ${{ secrets.TEST_NAME }}
 
       - name: Load previous Allure history
         uses: actions/checkout@v4

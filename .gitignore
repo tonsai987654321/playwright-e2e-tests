@@ -18,6 +18,9 @@ playwright-report/
 test-results/
 reports/
 
+# Secrets
+.env
+
 # OS / editor
 .DS_Store
 .idea/
