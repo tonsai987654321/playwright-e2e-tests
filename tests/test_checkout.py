@@ -10,6 +10,7 @@ def test_checkout_complete(page):
     login = LoginPage(page)
     login.navigate()
     login.login(TEST_USER["email"], TEST_USER["password"])
+    assert login.is_logged_in()
 
     home = HomePage(page)
     home.navigate()

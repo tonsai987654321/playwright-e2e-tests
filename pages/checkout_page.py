@@ -14,7 +14,7 @@ class CheckoutPage:
         self.page = page
 
     def proceed_to_checkout(self):
-        self.page.locator(self.PROCEED_TO_CHECKOUT).click()
+        self.page.locator(self.PROCEED_TO_CHECKOUT).first.click()
 
     def place_order(self):
         self.page.locator(self.PLACE_ORDER).click()

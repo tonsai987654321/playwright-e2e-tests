@@ -15,7 +15,7 @@ class CartPage:
 
     def remove_first_item(self):
         self.page.locator(self.REMOVE_BUTTON).first.click()
-        self.page.wait_for_timeout(500)
+        self.page.wait_for_selector(self.EMPTY_CART_MSG)
 
     def is_empty(self) -> bool:
         return self.page.locator(self.EMPTY_CART_MSG).is_visible()
