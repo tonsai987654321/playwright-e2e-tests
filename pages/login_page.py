@@ -1,3 +1,6 @@
+from pages.helpers import dismiss_ads
+
+
 class LoginPage:
     URL = "https://www.automationexercise.com/login"
     EMAIL_INPUT = "input[data-qa='login-email']"
@@ -11,11 +14,13 @@ class LoginPage:
 
     def navigate(self):
         self.page.goto(self.URL)
+        self.page.wait_for_load_state("domcontentloaded")
+        dismiss_ads(self.page)
 
     def login(self, email: str, password: str):
-        self.page.fill(self.EMAIL_INPUT, email)
-        self.page.fill(self.PASSWORD_INPUT, password)
-        self.page.click(self.LOGIN_BUTTON)
+        self.page.locator(self.EMAIL_INPUT).fill(email)
+        self.page.locator(self.PASSWORD_INPUT).fill(password)
+        self.page.locator(self.LOGIN_BUTTON).click()
 
     def get_error_message(self) -> str:
         return self.page.locator(self.ERROR_MSG).text_content()

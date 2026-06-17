@@ -26,5 +26,6 @@ def browser():
 def page(browser):
     context = browser.new_context()
     page = context.new_page()
+    page.set_default_timeout(60000)
     yield page
     context.close()

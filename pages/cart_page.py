@@ -1,3 +1,6 @@
+from pages.helpers import dismiss_ads
+
+
 class CartPage:
     URL = "https://www.automationexercise.com/view_cart"
     CART_ROWS = "#cart_info_table tbody tr"
@@ -9,6 +12,8 @@ class CartPage:
 
     def navigate(self):
         self.page.goto(self.URL)
+        self.page.wait_for_load_state("domcontentloaded")
+        dismiss_ads(self.page)
 
     def get_item_count(self) -> int:
         return self.page.locator(self.CART_ROWS).count()

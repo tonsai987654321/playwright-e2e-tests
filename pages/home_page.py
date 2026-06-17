@@ -1,3 +1,6 @@
+from pages.helpers import dismiss_ads
+
+
 class HomePage:
     URL = "https://www.automationexercise.com/"
     PRODUCTS_URL = "https://www.automationexercise.com/products"
@@ -11,11 +14,15 @@ class HomePage:
 
     def navigate(self):
         self.page.goto(self.URL)
+        self.page.wait_for_load_state("domcontentloaded")
+        dismiss_ads(self.page)
 
     def search(self, query: str):
         self.page.goto(self.PRODUCTS_URL)
-        self.page.fill(self.SEARCH_INPUT, query)
-        self.page.click(self.SEARCH_BUTTON)
+        self.page.wait_for_load_state("domcontentloaded")
+        dismiss_ads(self.page)
+        self.page.locator(self.SEARCH_INPUT).fill(query)
+        self.page.locator(self.SEARCH_BUTTON).click()
 
     def get_product_names(self) -> list:
         return self.page.locator(self.PRODUCT_NAMES).all_text_contents()
