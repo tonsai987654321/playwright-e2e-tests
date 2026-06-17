@@ -20,14 +20,14 @@ class CheckoutPage:
         self.page.locator(self.PLACE_ORDER).click()
 
     def fill_card_details(self, name: str, number: str, cvc: str, month: str, year: str):
-        self.page.fill(self.CARD_NAME, name)
-        self.page.fill(self.CARD_NUMBER, number)
-        self.page.fill(self.CARD_CVC, cvc)
-        self.page.fill(self.CARD_MONTH, month)
-        self.page.fill(self.CARD_YEAR, year)
+        self.page.locator(self.CARD_NAME).fill(name)
+        self.page.locator(self.CARD_NUMBER).fill(number)
+        self.page.locator(self.CARD_CVC).fill(cvc)
+        self.page.locator(self.CARD_MONTH).fill(month)
+        self.page.locator(self.CARD_YEAR).fill(year)
 
     def confirm_payment(self):
-        self.page.click(self.PAY_BUTTON)
+        self.page.locator(self.PAY_BUTTON).click()
 
     def is_order_placed(self) -> bool:
         return self.page.locator(self.ORDER_CONFIRMATION).is_visible()
