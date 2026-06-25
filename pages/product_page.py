@@ -1,10 +1,13 @@
-class ProductPage:
+from pages.base_page import BasePage
+
+
+class ProductPage(BasePage):
     PRODUCT_NAME = ".product-information h2"
     ADD_TO_CART = "button:has-text('Add to cart')"
     CONTINUE_SHOPPING = "button:has-text('Continue Shopping')"
 
     def __init__(self, page):
-        self.page = page
+        super().__init__(page)
 
     def get_name(self) -> str:
         return self.page.locator(self.PRODUCT_NAME).text_content()

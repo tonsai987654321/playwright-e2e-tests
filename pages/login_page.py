@@ -1,7 +1,8 @@
 from pages.helpers import dismiss_ads
+from pages.base_page import BasePage
 
 
-class LoginPage:
+class LoginPage(BasePage):
     URL = "https://www.automationexercise.com/login"
     EMAIL_INPUT = "input[data-qa='login-email']"
     PASSWORD_INPUT = "input[data-qa='login-password']"
@@ -10,7 +11,7 @@ class LoginPage:
     LOGGED_IN_INDICATOR = "a:has-text('Logout')"
 
     def __init__(self, page):
-        self.page = page
+        super().__init__(page)
 
     def navigate(self):
         self.page.goto(self.URL)

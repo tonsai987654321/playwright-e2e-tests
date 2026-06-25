@@ -1,7 +1,8 @@
 from pages.helpers import dismiss_ads
+from pages.base_page import BasePage
 
 
-class HomePage:
+class HomePage(BasePage):
     URL = "https://www.automationexercise.com/"
     PRODUCTS_URL = "https://www.automationexercise.com/products"
     SEARCH_INPUT = "#search_product"
@@ -10,7 +11,7 @@ class HomePage:
     FIRST_PRODUCT_LINK = "a[href*='/product_details/']"
 
     def __init__(self, page):
-        self.page = page
+        super().__init__(page)
 
     def navigate(self):
         self.page.goto(self.URL)

@@ -1,14 +1,15 @@
 from pages.helpers import dismiss_ads
+from pages.base_page import BasePage
 
 
-class CartPage:
+class CartPage(BasePage):
     URL = "https://www.automationexercise.com/view_cart"
     CART_ROWS = "#cart_info_table tbody tr"
     REMOVE_BUTTON = ".cart_quantity_delete"
     EMPTY_CART_MSG = "b:has-text('Cart is empty!')"
 
     def __init__(self, page):
-        self.page = page
+        super().__init__(page)
 
     def navigate(self):
         self.page.goto(self.URL)

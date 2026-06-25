@@ -1,4 +1,7 @@
-class CheckoutPage:
+from pages.base_page import BasePage
+
+
+class CheckoutPage(BasePage):
     PROCEED_TO_CHECKOUT = "a:has-text('Proceed To Checkout')"
     PLACE_ORDER = "a:has-text('Place Order')"
     CARD_NAME = "input[data-qa='name-on-card']"
@@ -11,7 +14,7 @@ class CheckoutPage:
     LOGIN_PROMPT = "a:has-text('Register / Login')"
 
     def __init__(self, page):
-        self.page = page
+        super().__init__(page)
 
     def proceed_to_checkout(self):
         self.page.locator(self.PROCEED_TO_CHECKOUT).first.click()
