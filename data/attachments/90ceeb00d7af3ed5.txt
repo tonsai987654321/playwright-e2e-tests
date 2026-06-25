@@ -1,2 +1,0 @@
-FAILED: GET http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700
-Reason: mixed-content

@@ -1,2 +1,0 @@
-FAILED: GET https://fundingchoicesmessages.google.com/i/ca-pub-1677597403311019?href=https%3A%2F%2Fwww.automationexercise.com%2Fproducts&ers=2
-Reason: net::ERR_ABORTED
