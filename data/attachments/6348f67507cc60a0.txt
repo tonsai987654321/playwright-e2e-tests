@@ -1,0 +1,2 @@
+FAILED: POST https://www.automationexercise.com/cdn-cgi/rum?
+Reason: net::ERR_ABORTED

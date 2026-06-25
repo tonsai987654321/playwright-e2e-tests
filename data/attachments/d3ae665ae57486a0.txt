@@ -1,0 +1,2 @@
+FAILED: GET https://www.automationexercise.com/static/css/cart_checkout.css
+Reason: net::ERR_ABORTED

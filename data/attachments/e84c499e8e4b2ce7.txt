@@ -1,0 +1,2 @@
+FAILED: GET https://www.automationexercise.com/get_product_picture/4
+Reason: net::ERR_ABORTED
