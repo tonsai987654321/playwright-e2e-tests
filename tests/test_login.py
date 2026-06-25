@@ -14,3 +14,9 @@ def test_login_invalid(page):
     login.navigate()
     login.login("wrong@example.com", "wrongpassword")
     assert "incorrect" in login.get_error_message().lower()
+
+
+def test_login_wrong_title(page):
+    login = LoginPage(page)
+    login.navigate()
+    assert "Dashboard" in page.title(), f"Expected 'Dashboard' in title but got: {page.title()}"

@@ -1,5 +1,6 @@
 import allure
 from pages.base_page import BasePage
+from pages.helpers import dismiss_ads
 
 
 class CheckoutPage(BasePage):
@@ -19,6 +20,7 @@ class CheckoutPage(BasePage):
 
     @allure.step("Proceed to checkout")
     def proceed_to_checkout(self):
+        dismiss_ads(self.page)
         self.page.locator(self.PROCEED_TO_CHECKOUT).first.click()
         self.screenshot("after-proceed-to-checkout")
 
